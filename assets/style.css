@@ -1,0 +1,16 @@
+body {
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    font-size: 24px;
+    color: rgb(86, 54, 104);
+}
+
+span {
+    font-size: 30px;
+    color: rgb(114, 114, 114);
+}
