@@ -1,43 +1,33 @@
-/*Chiedere quanti chilometri vuole percorrere e metterlo nella varibile UserDistance
-Chiedere l'età del passeggero e metterlo nella variabile UserAge
-Stabilire il prezzo del biglietto in base ai km (0.21 € al km)
+/*START JS*/
 
-Applicare uno sconto del 20% per userAge
-Applicare uno sconto del 40% per gli over 65
-Prezzo totale del viaggio nella variabile () */
+const priceForKm = 0.21;
+const discountChildren = 20;
+const discountSenior = 40;
 
+const userName = document.querySelector('.user_name');
+const userDistance = document.querySelector('.user_distance');
+const userAge = document.querySelector('.user_Age');
+// console.log(userName, userDistance, userAge);
 
-const userDistance = parseInt(prompt ('Quanti chilometri devi percorrere?'));
-console.log('userDistance', userDistance);
+const basePrice = userDistance * priceForKm;
+// console.log(basePrice);
 
-const userAge = parseInt(prompt ('Quanti anni hai?'));
-console.log('userAge', userAge);
+let discountPercent = 0;
 
-const kmPrice = (0.21);
-console.log('kmPrice', kmPrice);
-
-let ticketPrice = userDistance * kmPrice;
-
-
-if (userAge >= 18 && userAge <= 65) {
-    ticketPrice
-    document.getElementById('discountedPrice').innerHTML = ticketPrice;
-    console.log(ticketPrice);
-}
-if (userAge > 65) {
-    let discountedPrice1 = ticketPrice - (ticketPrice * 40 / 100);
-    let discountedPrice1C = discountedPrice1.toFixed(2)
-    document.getElementById('discountedPrice').innerHTML = discountedPrice1C;
-    console.log(discountedPrice1C);
-}
 if (userAge < 18) {
-    let discountedPrice2 = ticketPrice - (ticketPrice * 20 / 100);
-    let discountedPrice2A = discountedPrice2.toFixed(2)
-    document.getElementById('discountedPrice').innerHTML = discountedPrice2A;
-    console.log(discountedPrice2A);
+    discountPercent = discountChildren;
+} else if (age >= 65) {
+	discountPercent = discountSenior;
 }
 
+// console.log(discountPercent);
 
+const discount = basePrice * discountPercent / 100;
+// console.log(discount);
+
+let finalPrice = basePrice - discount;
+finalPrice = parseFloat(finalPrice.toFixed(2));
+// console.log(finalPrice);
 
 
 
