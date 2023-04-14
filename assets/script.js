@@ -16,44 +16,44 @@ const finalPrice = document.querySelector('#final_price');
 
 /*INZIO INPUT DONE*/
 
-btnDone.addEventListener('click', function () {
+btnDone.addEventListener('click', 
+    function () {
+        userName = parseInt(userNameElement.value);
+        userDistance = parseInt(userDistanceElement.value);
+        userAge = parseInt(userAgeElement.value);
 
-    userName = parseInt(userNameElement.value);
-    userDistance = parseInt(userDistanceElement.value);
-    userAge = parseInt(userAgeElement.value);
+        const basePrice = userDistance * priceForKm;
+        // console.log(basePrice);
 
-    const basePrice = userDistance * priceForKm;
-    // console.log(basePrice);
+        let discountPercent = 0;
 
-    let discountPercent = 0;
+        if (userAge < 18) {
+        discountPercent = discountChildren;
+        } else if (userAge >= 65) {
+	    discountPercent = discountSenior;
+        }
+        // console.log(discountPercent);
 
-    if (userAge < 18) {
-    discountPercent = discountChildren;
-    } else if (userAge >= 65) {
-	discountPercent = discountSenior;
-    }
-    // console.log(discountPercent);
+        const discount = basePrice * discountPercent / 100;
+        // console.log(discount);
 
-    const discount = basePrice * discountPercent / 100;
-    // console.log(discount);
-
-    let finalPrice = basePrice - discount;
-    finalPrice = parseFloat(finalPrice.toFixed(2));
-    document.getElementById('final_price').innerHTML = ('' + finalPrice);
-    // console.log(finalPrice);
-
-} );
+        let finalPrice = basePrice - discount;
+        finalPrice = parseFloat(finalPrice.toFixed(2));
+        document.getElementById('final_price').innerHTML = ('' + finalPrice);
+        // console.log(finalPrice);
+    } 
+);
 
 /*INZIO INPUT RESET
 
 CON TYPE=RESET AL BUTTON LO FA DA SOLO SENZA QUESTO JS SOTTO*/
 
-btnReset.addEventListener('click', function() {
-    
-    userNameElement.value = '';
-    userDistanceElement.value = '';
-    userAgeElement.value = '';
-    finalPrice.innerHTML = '';
-
-});
+btnReset.addEventListener('click', 
+    function() {
+        userNameElement.value = '';
+        userDistanceElement.value = '';
+        userAgeElement.value = '';
+        finalPrice.innerHTML = '';
+    }
+);
 
