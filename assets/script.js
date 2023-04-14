@@ -2,21 +2,25 @@
 
 /*DICHIARAZIONE VARIABILI*/
 
-let userNameElement = document.querySelector('.user_name');
-let userDistanceElement = document.querySelector('.user_distance');
-let userAgeElement = document.querySelector('.user_age');
 const priceForKm = 0.21;
 const discountChildren = 20;
 const discountSenior = 40;
-// console.log(userNameElement, userDistanceElement, userAgeElement);
 
-/*INZIO INPUT*/
+const userNameElement = document.querySelector('#user_name');
+const userDistanceElement = document.querySelector('#user_distance');
+const userAgeElement = document.querySelector('#user_age');
+const btnDone = document.querySelector('#btn_done');
+const btnReset = document.querySelector('#btn_reset');
+const finalPrice = document.querySelector('#final_price');
+// console.log(userNameElement, userDistanceElement, userAgeElement, btnDone, btnReset, finalPrice);
 
-btn_active.addEventListener('click', function () {
+/*INZIO INPUT DONE*/
 
-    const userName = parseInt(userNameElement.value);
-    const userDistance = parseInt(userDistanceElement.value);
-    const userAge = parseInt(userAgeElement.value);
+btnDone.addEventListener('click', function () {
+
+    userName = parseInt(userNameElement.value);
+    userDistance = parseInt(userDistanceElement.value);
+    userAge = parseInt(userAgeElement.value);
 
     const basePrice = userDistance * priceForKm;
     // console.log(basePrice);
@@ -39,4 +43,17 @@ btn_active.addEventListener('click', function () {
     // console.log(finalPrice);
 
 } );
+
+/*INZIO INPUT RESET
+
+CON TYPE=RESET AL BUTTON LO FA DA SOLO SENZA QUESTO JS SOTTO*/
+
+btnReset.addEventListener('click', function() {
+    
+    userNameElement.value = '';
+    userDistanceElement.value = '';
+    userAgeElement.value = '';
+    finalPrice.innerHTML = '';
+
+});
 
