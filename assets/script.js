@@ -49,7 +49,7 @@ btnDone.addEventListener('click',
 CON TYPE=RESET AL BUTTON LO FA DA SOLO SENZA QUESTO JS SOTTO*/
 
 btnReset.addEventListener('click', 
-    function() {
+    function () {
         userNameElement.value = '';
         userDistanceElement.value = '';
         userAgeElement.value = '';
